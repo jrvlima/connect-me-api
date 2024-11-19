@@ -1,0 +1,887 @@
+{
+  "configuration" : {
+    "scope" : "SoftwareSystem"
+  },
+  "description" : "Conectme é uma plataforma que conecta prestadores de serviço e clientes",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2024-11-19T22:14:53Z",
+  "model" : {
+    "people" : [ {
+      "id" : "1",
+      "location" : "Unspecified",
+      "name" : "User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "u"
+      },
+      "relationships" : [ {
+        "description" : "Uses",
+        "destinationId" : "6",
+        "id" : "24",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Uses",
+        "destinationId" : "5",
+        "id" : "25",
+        "linkedRelationshipId" : "24",
+        "sourceId" : "1"
+      }, {
+        "description" : "Uses",
+        "destinationId" : "7",
+        "id" : "26",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "description" : "Sistema de pagamento",
+      "documentation" : { },
+      "id" : "2",
+      "location" : "Unspecified",
+      "name" : "Paypal",
+      "properties" : {
+        "structurizr.dsl.identifier" : "paypal"
+      },
+      "tags" : "Element,Software System"
+    }, {
+      "description" : "Sistema de autenticação",
+      "documentation" : { },
+      "id" : "3",
+      "location" : "Unspecified",
+      "name" : "AWS Cognito",
+      "properties" : {
+        "structurizr.dsl.identifier" : "cognito"
+      },
+      "tags" : "Element,Software System"
+    }, {
+      "description" : "Redirects HTTP requests to the backend",
+      "documentation" : { },
+      "id" : "4",
+      "location" : "Unspecified",
+      "name" : "AWS API Gateway",
+      "properties" : {
+        "structurizr.dsl.identifier" : "apigw"
+      },
+      "relationships" : [ {
+        "description" : "HTTP Redirect",
+        "destinationId" : "8",
+        "id" : "30",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      }, {
+        "description" : "HTTP Redirect",
+        "destinationId" : "5",
+        "id" : "31",
+        "linkedRelationshipId" : "30",
+        "sourceId" : "4"
+      }, {
+        "description" : "Authenticate",
+        "destinationId" : "3",
+        "id" : "39",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      }, {
+        "description" : "HTTP Redirect",
+        "destinationId" : "9",
+        "id" : "40",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      }, {
+        "description" : "HTTP Redirect",
+        "destinationId" : "10",
+        "id" : "41",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      }, {
+        "description" : "HTTP Redirect",
+        "destinationId" : "11",
+        "id" : "42",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      }, {
+        "description" : "HTTP Redirect",
+        "destinationId" : "12",
+        "id" : "43",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      }, {
+        "description" : "HTTP Redirect",
+        "destinationId" : "13",
+        "id" : "44",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      }, {
+        "description" : "HTTP Redirect",
+        "destinationId" : "14",
+        "id" : "45",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      }, {
+        "description" : "HTTP Redirect",
+        "destinationId" : "15",
+        "id" : "46",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Software System,API Gateway"
+    }, {
+      "containers" : [ {
+        "description" : "Interfaces de Usuário",
+        "documentation" : { },
+        "id" : "6",
+        "name" : "Web Application",
+        "properties" : {
+          "structurizr.dsl.identifier" : "wa"
+        },
+        "relationships" : [ {
+          "description" : "HTTP requests",
+          "destinationId" : "4",
+          "id" : "29",
+          "sourceId" : "6",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Authenticate",
+          "destinationId" : "3",
+          "id" : "35",
+          "sourceId" : "6",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,Web Browser",
+        "technology" : "Javascrit and Angular"
+      }, {
+        "description" : "Interfaces de Usuário",
+        "documentation" : { },
+        "id" : "7",
+        "name" : "Mobile",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ma"
+        },
+        "relationships" : [ {
+          "description" : "HTTP requests",
+          "destinationId" : "4",
+          "id" : "27",
+          "sourceId" : "7",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Authenticate",
+          "destinationId" : "3",
+          "id" : "33",
+          "sourceId" : "7",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,Mobile",
+        "technology" : "Javascript and Ionic"
+      }, {
+        "components" : [ {
+          "description" : "Serviço de Rede Social para Clientes e Prestadores",
+          "documentation" : { },
+          "id" : "9",
+          "name" : "Conectme Connection Service",
+          "properties" : {
+            "structurizr.dsl.identifier" : "connection"
+          },
+          "relationships" : [ {
+            "description" : "Reads from and writes to",
+            "destinationId" : "17",
+            "id" : "47",
+            "sourceId" : "9",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and writes to",
+            "destinationId" : "16",
+            "id" : "48",
+            "linkedRelationshipId" : "47",
+            "sourceId" : "9"
+          } ],
+          "tags" : "Element,Component,Spring Boot",
+          "technology" : "Spring Boot"
+        }, {
+          "description" : "Serviço de Contratação de Serviços",
+          "documentation" : { },
+          "id" : "10",
+          "name" : "Conectme Booking Service",
+          "properties" : {
+            "structurizr.dsl.identifier" : "booking"
+          },
+          "relationships" : [ {
+            "description" : "Reads from and writes to",
+            "destinationId" : "18",
+            "id" : "50",
+            "sourceId" : "10",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and writes to",
+            "destinationId" : "16",
+            "id" : "51",
+            "linkedRelationshipId" : "50",
+            "sourceId" : "10"
+          }, {
+            "description" : "Validate JWT",
+            "destinationId" : "3",
+            "id" : "70",
+            "sourceId" : "10",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Spring Boot",
+          "technology" : "Spring Boot"
+        }, {
+          "description" : "Serviço para gerenciar as habilidades de prestadores de serviços",
+          "documentation" : { },
+          "id" : "11",
+          "name" : "Conectme Skills Service",
+          "properties" : {
+            "structurizr.dsl.identifier" : "skills"
+          },
+          "relationships" : [ {
+            "description" : "Reads from and writes to",
+            "destinationId" : "19",
+            "id" : "53",
+            "sourceId" : "11",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and writes to",
+            "destinationId" : "16",
+            "id" : "54",
+            "linkedRelationshipId" : "53",
+            "sourceId" : "11"
+          }, {
+            "description" : "Validate JWT",
+            "destinationId" : "3",
+            "id" : "71",
+            "sourceId" : "11",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Spring Boot",
+          "technology" : "Spring Boot"
+        }, {
+          "description" : "Serviço para gerenciar os perfirs de pessoas, clientes e prestadores",
+          "documentation" : { },
+          "id" : "12",
+          "name" : "Conectme Person Service",
+          "properties" : {
+            "structurizr.dsl.identifier" : "persons"
+          },
+          "relationships" : [ {
+            "description" : "Reads from and writes to",
+            "destinationId" : "20",
+            "id" : "56",
+            "sourceId" : "12",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and writes to",
+            "destinationId" : "16",
+            "id" : "57",
+            "linkedRelationshipId" : "56",
+            "sourceId" : "12"
+          }, {
+            "description" : "Authenticate",
+            "destinationId" : "3",
+            "id" : "68",
+            "sourceId" : "12",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Spring Boot",
+          "technology" : "Spring Boot"
+        }, {
+          "description" : "Serviço de Pagamento entre Clientes e Prestadores",
+          "documentation" : { },
+          "id" : "13",
+          "name" : "Conectme Pagamento",
+          "properties" : {
+            "structurizr.dsl.identifier" : "payments"
+          },
+          "relationships" : [ {
+            "description" : "Uses",
+            "destinationId" : "2",
+            "id" : "36",
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and writes to",
+            "destinationId" : "21",
+            "id" : "59",
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and writes to",
+            "destinationId" : "16",
+            "id" : "60",
+            "linkedRelationshipId" : "59",
+            "sourceId" : "13"
+          }, {
+            "description" : "Validate JWT",
+            "destinationId" : "3",
+            "id" : "72",
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Spring Boot",
+          "technology" : "Spring Boot"
+        }, {
+          "description" : "Serviço para gerenciar o histórico de serviços contratados",
+          "documentation" : { },
+          "id" : "14",
+          "name" : "Conectme Booking History Service",
+          "properties" : {
+            "structurizr.dsl.identifier" : "work_history"
+          },
+          "relationships" : [ {
+            "description" : "Reads from and writes to",
+            "destinationId" : "22",
+            "id" : "62",
+            "sourceId" : "14",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and writes to",
+            "destinationId" : "16",
+            "id" : "63",
+            "linkedRelationshipId" : "62",
+            "sourceId" : "14"
+          }, {
+            "description" : "Validate JWT",
+            "destinationId" : "3",
+            "id" : "73",
+            "sourceId" : "14",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Spring Boot",
+          "technology" : "Spring Boot"
+        }, {
+          "description" : "Serviço para gerenciar as avaliações de serviços",
+          "documentation" : { },
+          "id" : "15",
+          "name" : "Conectme Review Service",
+          "properties" : {
+            "structurizr.dsl.identifier" : "review"
+          },
+          "relationships" : [ {
+            "description" : "Reads from and writes to",
+            "destinationId" : "23",
+            "id" : "65",
+            "sourceId" : "15",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and writes to",
+            "destinationId" : "16",
+            "id" : "66",
+            "linkedRelationshipId" : "65",
+            "sourceId" : "15"
+          }, {
+            "description" : "Validate JWT",
+            "destinationId" : "3",
+            "id" : "74",
+            "sourceId" : "15",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Spring Boot",
+          "technology" : "Spring Boot"
+        } ],
+        "description" : "Regras de negócio do Conectme",
+        "documentation" : { },
+        "id" : "8",
+        "name" : "Conectme Backend",
+        "properties" : {
+          "structurizr.dsl.identifier" : "conectmebackend"
+        },
+        "relationships" : [ {
+          "description" : "Reads from and writes to",
+          "destinationId" : "16",
+          "id" : "32",
+          "sourceId" : "8",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Uses",
+          "destinationId" : "2",
+          "id" : "37",
+          "linkedRelationshipId" : "36",
+          "sourceId" : "8"
+        }, {
+          "description" : "Reads from and writes to",
+          "destinationId" : "17",
+          "id" : "49",
+          "linkedRelationshipId" : "47",
+          "sourceId" : "8"
+        }, {
+          "description" : "Reads from and writes to",
+          "destinationId" : "18",
+          "id" : "52",
+          "linkedRelationshipId" : "50",
+          "sourceId" : "8"
+        }, {
+          "description" : "Reads from and writes to",
+          "destinationId" : "19",
+          "id" : "55",
+          "linkedRelationshipId" : "53",
+          "sourceId" : "8"
+        }, {
+          "description" : "Reads from and writes to",
+          "destinationId" : "20",
+          "id" : "58",
+          "linkedRelationshipId" : "56",
+          "sourceId" : "8"
+        }, {
+          "description" : "Reads from and writes to",
+          "destinationId" : "21",
+          "id" : "61",
+          "linkedRelationshipId" : "59",
+          "sourceId" : "8"
+        }, {
+          "description" : "Reads from and writes to",
+          "destinationId" : "22",
+          "id" : "64",
+          "linkedRelationshipId" : "62",
+          "sourceId" : "8"
+        }, {
+          "description" : "Reads from and writes to",
+          "destinationId" : "23",
+          "id" : "67",
+          "linkedRelationshipId" : "65",
+          "sourceId" : "8"
+        }, {
+          "description" : "Authenticate",
+          "destinationId" : "3",
+          "id" : "69",
+          "linkedRelationshipId" : "68",
+          "sourceId" : "8"
+        } ],
+        "tags" : "Element,Container",
+        "technology" : "Spring Boot"
+      }, {
+        "components" : [ {
+          "description" : "Serviço de conexão com o banco de dados",
+          "documentation" : { },
+          "id" : "17",
+          "name" : "Conectme Connection Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "connection_db"
+          },
+          "tags" : "Element,Component,Postgres",
+          "technology" : "Postgres"
+        }, {
+          "description" : "Serviço de conexão com o banco de dados",
+          "documentation" : { },
+          "id" : "18",
+          "name" : "Conectme Booking Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "booking_db"
+          },
+          "tags" : "Element,Component,Postgres",
+          "technology" : "Postgres"
+        }, {
+          "description" : "Serviço de conexão com o banco de dados",
+          "documentation" : { },
+          "id" : "19",
+          "name" : "Conectme Skills Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "skills_db"
+          },
+          "tags" : "Element,Component,Postgres",
+          "technology" : "Postgres"
+        }, {
+          "description" : "Serviço de conexão com o banco de dados",
+          "documentation" : { },
+          "id" : "20",
+          "name" : "Conectme Person Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "persons_db"
+          },
+          "tags" : "Element,Component,Postgres",
+          "technology" : "Postgres"
+        }, {
+          "description" : "Serviço de conexão com o banco de dados",
+          "documentation" : { },
+          "id" : "21",
+          "name" : "Conectme Pagamento Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "payments_db"
+          },
+          "tags" : "Element,Component,Postgres",
+          "technology" : "Postgres"
+        }, {
+          "description" : "Serviço de conexão com o banco de dados",
+          "documentation" : { },
+          "id" : "22",
+          "name" : "Conectme Booking History Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "work_history_sdb"
+          },
+          "tags" : "Element,Component,Postgres",
+          "technology" : "Postgres"
+        }, {
+          "description" : "Serviço de conexão com o banco de dados",
+          "documentation" : { },
+          "id" : "23",
+          "name" : "Conectme Review Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "review_db"
+          },
+          "tags" : "Element,Component,Postgres",
+          "technology" : "Postgres"
+        } ],
+        "description" : "Persistência de dados do Conectme",
+        "documentation" : { },
+        "id" : "16",
+        "name" : "Conectme Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "conectmedb"
+        },
+        "tags" : "Element,Container,Database"
+      } ],
+      "documentation" : { },
+      "id" : "5",
+      "location" : "Unspecified",
+      "name" : "conectme",
+      "properties" : {
+        "structurizr.dsl.identifier" : "ss"
+      },
+      "relationships" : [ {
+        "description" : "HTTP requests",
+        "destinationId" : "4",
+        "id" : "28",
+        "linkedRelationshipId" : "27",
+        "sourceId" : "5"
+      }, {
+        "description" : "Authenticate",
+        "destinationId" : "3",
+        "id" : "34",
+        "linkedRelationshipId" : "33",
+        "sourceId" : "5"
+      }, {
+        "description" : "Uses",
+        "destinationId" : "2",
+        "id" : "38",
+        "linkedRelationshipId" : "36",
+        "sourceId" : "5"
+      } ],
+      "tags" : "Element,Software System"
+    } ]
+  },
+  "name" : "conectme",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlICJjb25lY3RtZSIgIkNvbmVjdG1lIMOpIHVtYSBwbGF0YWZvcm1hIHF1ZSBjb25lY3RhIHByZXN0YWRvcmVzIGRlIHNlcnZpw6dvIGUgY2xpZW50ZXMiIHsKCiAgICBtb2RlbCB7CiAgICAgICAgdSA9IHBlcnNvbiAiVXNlciIKICAgICAgICBwYXlwYWwgPSBzb2Z0d2FyZVN5c3RlbSAiUGF5cGFsIiAiU2lzdGVtYSBkZSBwYWdhbWVudG8iCiAgICAgICAgY29nbml0byA9IHNvZnR3YXJlU3lzdGVtICJBV1MgQ29nbml0byIgIlNpc3RlbWEgZGUgYXV0ZW50aWNhw6fDo28iCiAgICAgICAgYXBpZ3cgPSBzb2Z0d2FyZVN5c3RlbSAiQVdTIEFQSSBHYXRld2F5IiAiUmVkaXJlY3RzIEhUVFAgcmVxdWVzdHMgdG8gdGhlIGJhY2tlbmQiICAiQVBJIEdhdGV3YXkiCgogICAgICAgIHNzID0gc29mdHdhcmVTeXN0ZW0gImNvbmVjdG1lIiB7CiAgICAgICAgICAgIHdhID0gY29udGFpbmVyICJXZWIgQXBwbGljYXRpb24iICJJbnRlcmZhY2VzIGRlIFVzdcOhcmlvIiAiSmF2YXNjcml0IGFuZCBBbmd1bGFyIiAiV2ViIEJyb3dzZXIiCiAgICAgICAgICAgIG1hID0gY29udGFpbmVyICJNb2JpbGUiICJJbnRlcmZhY2VzIGRlIFVzdcOhcmlvIiAiSmF2YXNjcmlwdCBhbmQgSW9uaWMiICJNb2JpbGUiCgogICAgICAgICAgICBjb25lY3RtZWJhY2tlbmQgPSBjb250YWluZXIgIkNvbmVjdG1lIEJhY2tlbmQiICJBcGxpY2HDp8OjbyBCYWNrZW5kIiAiU3ByaW5nIEJvb3QiIHsKICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJSZWdyYXMgZGUgbmVnw7NjaW8gZG8gQ29uZWN0bWUiCiAgICAgICAgICAgICAgICBjb25uZWN0aW9uID0gY29tcG9uZW50ICJDb25lY3RtZSBDb25uZWN0aW9uIFNlcnZpY2UiICJTZXJ2acOnbyBkZSBSZWRlIFNvY2lhbCBwYXJhIENsaWVudGVzIGUgUHJlc3RhZG9yZXMiICJTcHJpbmcgQm9vdCIgIlNwcmluZyBCb290IgogICAgICAgICAgICAgICAgYm9va2luZyA9IGNvbXBvbmVudCAiQ29uZWN0bWUgQm9va2luZyBTZXJ2aWNlIiAiU2VydmnDp28gZGUgQ29udHJhdGHDp8OjbyBkZSBTZXJ2acOnb3MiICJTcHJpbmcgQm9vdCIgIlNwcmluZyBCb290IgogICAgICAgICAgICAgICAgc2tpbGxzID0gY29tcG9uZW50ICJDb25lY3RtZSBTa2lsbHMgU2VydmljZSIgIlNlcnZpw6dvIHBhcmEgZ2VyZW5jaWFyIGFzIGhhYmlsaWRhZGVzIGRlIHByZXN0YWRvcmVzIGRlIHNlcnZpw6dvcyIgIlNwcmluZyBCb290IiAiU3ByaW5nIEJvb3QiCiAgICAgICAgICAgICAgICBwZXJzb25zID0gY29tcG9uZW50ICJDb25lY3RtZSBQZXJzb24gU2VydmljZSIgIlNlcnZpw6dvIHBhcmEgZ2VyZW5jaWFyIG9zIHBlcmZpcnMgZGUgcGVzc29hcywgY2xpZW50ZXMgZSBwcmVzdGFkb3JlcyIgIlNwcmluZyBCb290IiAiU3ByaW5nIEJvb3QiCiAgICAgICAgICAgICAgICBwYXltZW50cyA9IGNvbXBvbmVudCAiQ29uZWN0bWUgUGFnYW1lbnRvIiAiU2VydmnDp28gZGUgUGFnYW1lbnRvIGVudHJlIENsaWVudGVzIGUgUHJlc3RhZG9yZXMiICJTcHJpbmcgQm9vdCIgIlNwcmluZyBCb290IgogICAgICAgICAgICAgICAgd29ya19oaXN0b3J5ID0gY29tcG9uZW50ICJDb25lY3RtZSBCb29raW5nIEhpc3RvcnkgU2VydmljZSIgIlNlcnZpw6dvIHBhcmEgZ2VyZW5jaWFyIG8gaGlzdMOzcmljbyBkZSBzZXJ2acOnb3MgY29udHJhdGFkb3MiICJTcHJpbmcgQm9vdCIgIlNwcmluZyBCb290IgogICAgICAgICAgICAgICAgcmV2aWV3ID0gY29tcG9uZW50ICJDb25lY3RtZSBSZXZpZXcgU2VydmljZSIgIlNlcnZpw6dvIHBhcmEgZ2VyZW5jaWFyIGFzIGF2YWxpYcOnw7VlcyBkZSBzZXJ2acOnb3MiICJTcHJpbmcgQm9vdCIgIlNwcmluZyBCb290IgogICAgICAgICAgICAKICAgICAgICAgICAgfQoKICAgICAgICAgICAgY29uZWN0bWVkYiA9IGNvbnRhaW5lciAiQ29uZWN0bWUgRGF0YWJhc2UiICJQb3N0Z3JlcyIgewogICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIlBlcnNpc3TDqm5jaWEgZGUgZGFkb3MgZG8gQ29uZWN0bWUiCiAgICAgICAgICAgICAgICB0YWdzICJEYXRhYmFzZSIgCiAgICAgICAgICAgICAgICBjb25uZWN0aW9uX2RiID0gY29tcG9uZW50ICJDb25lY3RtZSBDb25uZWN0aW9uIERhdGFiYXNlIiAiU2VydmnDp28gZGUgY29uZXjDo28gY29tIG8gYmFuY28gZGUgZGFkb3MiICJQb3N0Z3JlcyIgIlBvc3RncmVzIgogICAgICAgICAgICAgICAgYm9va2luZ19kYiA9IGNvbXBvbmVudCAiQ29uZWN0bWUgQm9va2luZyBEYXRhYmFzZSIgIlNlcnZpw6dvIGRlIGNvbmV4w6NvIGNvbSBvIGJhbmNvIGRlIGRhZG9zIiAiUG9zdGdyZXMiICJQb3N0Z3JlcyIKICAgICAgICAgICAgICAgIHNraWxsc19kYiA9IGNvbXBvbmVudCAiQ29uZWN0bWUgU2tpbGxzIERhdGFiYXNlIiAiU2VydmnDp28gZGUgY29uZXjDo28gY29tIG8gYmFuY28gZGUgZGFkb3MiICJQb3N0Z3JlcyIgIlBvc3RncmVzIgogICAgICAgICAgICAgICAgcGVyc29uc19kYiA9IGNvbXBvbmVudCAiQ29uZWN0bWUgUGVyc29uIERhdGFiYXNlIiAiU2VydmnDp28gZGUgY29uZXjDo28gY29tIG8gYmFuY28gZGUgZGFkb3MiICJQb3N0Z3JlcyIgIlBvc3RncmVzIgogICAgICAgICAgICAgICAgcGF5bWVudHNfZGIgPSBjb21wb25lbnQgIkNvbmVjdG1lIFBhZ2FtZW50byBEYXRhYmFzZSIgIlNlcnZpw6dvIGRlIGNvbmV4w6NvIGNvbSBvIGJhbmNvIGRlIGRhZG9zIiAiUG9zdGdyZXMiICJQb3N0Z3JlcyIKICAgICAgICAgICAgICAgIHdvcmtfaGlzdG9yeV9zZGIgPSBjb21wb25lbnQgIkNvbmVjdG1lIEJvb2tpbmcgSGlzdG9yeSBEYXRhYmFzZSIgIlNlcnZpw6dvIGRlIGNvbmV4w6NvIGNvbSBvIGJhbmNvIGRlIGRhZG9zIiAiUG9zdGdyZXMiICJQb3N0Z3JlcyIKICAgICAgICAgICAgICAgIHJldmlld19kYiA9IGNvbXBvbmVudCAiQ29uZWN0bWUgUmV2aWV3IERhdGFiYXNlIiAiU2VydmnDp28gZGUgY29uZXjDo28gY29tIG8gYmFuY28gZGUgZGFkb3MiICJQb3N0Z3JlcyIgIlBvc3RncmVzIgogICAgICAgICAgICAgICAgCiAgICAgICAgICAgIH0KICAgICAgICB9CgogICAgICAgIHUgLT4gd2EgIlVzZXMiCiAgICAgICAgdSAtPiBtYSAiVXNlcyIKICAgICAgICBtYSAtPiBhcGlndyAiSFRUUCByZXF1ZXN0cyIKICAgICAgICB3YSAtPiBhcGlndyAiSFRUUCByZXF1ZXN0cyIKICAgICAgICBhcGlndyAtPiBjb25lY3RtZWJhY2tlbmQgIkhUVFAgUmVkaXJlY3QiCiAgICAgICAgY29uZWN0bWViYWNrZW5kIC0+IGNvbmVjdG1lZGIgIlJlYWRzIGZyb20gYW5kIHdyaXRlcyB0byIKCiAgICAgICAgbWEgLT4gY29nbml0byAiQXV0aGVudGljYXRlIgogICAgICAgIHdhIC0+IGNvZ25pdG8gIkF1dGhlbnRpY2F0ZSIKCiAgICAgICAgcGF5bWVudHMgLT4gcGF5cGFsICJVc2VzIgoKICAgICAgICBhcGlndyAtPiBjb2duaXRvICJBdXRoZW50aWNhdGUiCgogICAgICAgIGFwaWd3IC0+IGNvbm5lY3Rpb24gIkhUVFAgUmVkaXJlY3QiCiAgICAgICAgYXBpZ3cgLT4gYm9va2luZyAiSFRUUCBSZWRpcmVjdCIKICAgICAgICBhcGlndyAtPiBza2lsbHMgIkhUVFAgUmVkaXJlY3QiCiAgICAgICAgYXBpZ3cgLT4gcGVyc29ucyAiSFRUUCBSZWRpcmVjdCIKICAgICAgICAKICAgICAgICBhcGlndyAtPiBwYXltZW50cyAiSFRUUCBSZWRpcmVjdCIKICAgICAgICBhcGlndyAtPiB3b3JrX2hpc3RvcnkgIkhUVFAgUmVkaXJlY3QiCiAgICAgICAgYXBpZ3cgLT4gcmV2aWV3ICJIVFRQIFJlZGlyZWN0IgoKCiAgICAgICAgY29ubmVjdGlvbiAtPiBjb25uZWN0aW9uX2RiICJSZWFkcyBmcm9tIGFuZCB3cml0ZXMgdG8iCiAgICAgICAgYm9va2luZyAtPiBib29raW5nX2RiICJSZWFkcyBmcm9tIGFuZCB3cml0ZXMgdG8iCiAgICAgICAgc2tpbGxzIC0+IHNraWxsc19kYiAiUmVhZHMgZnJvbSBhbmQgd3JpdGVzIHRvIgogICAgICAgIHBlcnNvbnMgLT4gcGVyc29uc19kYiAiUmVhZHMgZnJvbSBhbmQgd3JpdGVzIHRvIgogICAgICAgIHBheW1lbnRzIC0+IHBheW1lbnRzX2RiICJSZWFkcyBmcm9tIGFuZCB3cml0ZXMgdG8iCiAgICAgICAgd29ya19oaXN0b3J5IC0+IHdvcmtfaGlzdG9yeV9zZGIgIlJlYWRzIGZyb20gYW5kIHdyaXRlcyB0byIKICAgICAgICByZXZpZXcgLT4gcmV2aWV3X2RiICJSZWFkcyBmcm9tIGFuZCB3cml0ZXMgdG8iCiAgICAgICAgCiAgICAgICAgcGVyc29ucyAtPiBjb2duaXRvICJBdXRoZW50aWNhdGUiCiAgICAgICAgYm9va2luZyAtPiBjb2duaXRvICJWYWxpZGF0ZSBKV1QiCiAgICAgICAgc2tpbGxzIC0+IGNvZ25pdG8gIlZhbGlkYXRlIEpXVCIKICAgICAgICBwYXltZW50cyAtPiBjb2duaXRvICJWYWxpZGF0ZSBKV1QiCiAgICAgICAgd29ya19oaXN0b3J5IC0+IGNvZ25pdG8gIlZhbGlkYXRlIEpXVCIKICAgICAgICByZXZpZXcgLT4gY29nbml0byAiVmFsaWRhdGUgSldUIgogICAgfQoKICAgIHZpZXdzIHsKICAgICAgICBzeXN0ZW1Db250ZXh0IHNzICJEaWFncmFtMSIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CgogICAgICAgIGNvbnRhaW5lciBzcyAiRGlhZ3JhbTIiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGV4Y2x1ZGUgIm1hIgogICAgICAgIH0KCiAgICAgICAgY29tcG9uZW50IGNvbmVjdG1lYmFja2VuZCAiVG9kb3MiIHsKICAgICAgICAgICAgaW5jbHVkZSBib29raW5nIHBlcnNvbnMgc2tpbGxzIHBheW1lbnRzIHdvcmtfaGlzdG9yeSByZXZpZXcgY29ubmVjdGlvbiBhcGlndyBjb2duaXRvIG1hIHUKICAgICAgICAgICAgCiAgICAgICAgICAgIGV4Y2x1ZGUgInBheW1lbnRzIC0+IGNvZ25pdG8iCiAgICAgICAgICAgIGV4Y2x1ZGUgInNraWxscyAtPiBjb2duaXRvIgogICAgICAgICAgICBleGNsdWRlICJ3b3JrX2hpc3RvcnkgLT4gY29nbml0byIKICAgICAgICAgICAgZXhjbHVkZSAicmV2aWV3IC0+IGNvZ25pdG8iCiAgICAgICAgICAgIGV4Y2x1ZGUgImNvbm5lY3Rpb24gLT4gY29nbml0byIKICAgICAgICAgICAgCiAgICAgICAgfQoKICAgICAgICBjb21wb25lbnQgY29uZWN0bWViYWNrZW5kICJDb250cmF0YSIgewogICAgICAgICAgICBpbmNsdWRlIGJvb2tpbmcgcGVyc29ucyBhcGlndyAgbWEgdSBjb2duaXRvIHBlcnNvbnNfZGIgYm9va2luZ19kYgogICAgICAgICAgICBleGNsdWRlICJhcGlndyAtPiBwZXJzb25zIgogICAgICAgIH0KCiAgICAgICAgc3R5bGVzIHsKICAgICAgICAgICAgZWxlbWVudCAiRWxlbWVudCIgewogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIlBlcnNvbiIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjMkU4QjU3CiAgICAgICAgICAgICAgICBzaGFwZSBwZXJzb24KICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJTb2Z0d2FyZSBTeXN0ZW0iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgI2ZmZmZmZgogICAgICAgICAgICAgICAgY29sb3IgIzAwMDAwMAogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNvbnRhaW5lciIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjNDY4MkI0CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ29tcG9uZW50IiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM0QjAwODIKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJXZWIgQnJvd3NlciIgewogICAgICAgICAgICAgICAgc2hhcGUgV2ViQnJvd3NlcgogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjN0I2OEVFCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiRGF0YWJhc2UiIHsKICAgICAgICAgICAgICAgIHNoYXBlIGN5bGluZGVyCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiTW9iaWxlIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBNb2JpbGVEZXZpY2VQb3J0cmFpdAogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjRkY2QjgxCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiU3ByaW5nIEJvb3QiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzY5Njk2OQogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkFQSSBHYXRld2F5IiB7CiAgICAgICAgICAgICAgICB3aWR0aCAxODAwCiAgICAgICAgICAgICAgICBoZWlnaHQgMTUwCiAgICAgICAgICAgICAgICBzdHJva2UgI2ZmZmZmZgogICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGggMwogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjNjk2OTY5CiAgICAgICAgICAgICAgICBib3JkZXIgZGFzaGVkCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9CgogICAgY29uZmlndXJhdGlvbiB7CiAgICAgICAgc2NvcGUgc29mdHdhcmVzeXN0ZW0KICAgIH0KCn0="
+  },
+  "views" : {
+    "componentViews" : [ {
+      "containerId" : "8",
+      "dimensions" : {
+        "height" : 2085,
+        "width" : 4395
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 200,
+        "y" : 798
+      }, {
+        "id" : "3",
+        "x" : 3706,
+        "y" : 259
+      }, {
+        "id" : "4",
+        "x" : 1381,
+        "y" : 794
+      }, {
+        "id" : "7",
+        "x" : 591,
+        "y" : 199
+      }, {
+        "id" : "9",
+        "x" : 485,
+        "y" : 1493
+      }, {
+        "id" : "10",
+        "x" : 3185,
+        "y" : 1493
+      }, {
+        "id" : "11",
+        "x" : 2645,
+        "y" : 1493
+      }, {
+        "id" : "12",
+        "x" : 3725,
+        "y" : 1493
+      }, {
+        "id" : "13",
+        "x" : 2105,
+        "y" : 1493
+      }, {
+        "id" : "14",
+        "x" : 1565,
+        "y" : 1493
+      }, {
+        "id" : "15",
+        "x" : 1025,
+        "y" : 1493
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "key" : "Todos",
+      "order" : 3,
+      "relationships" : [ {
+        "id" : "26"
+      }, {
+        "id" : "27"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "40",
+        "vertices" : [ {
+          "x" : 1290,
+          "y" : 1133
+        } ]
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "43",
+        "vertices" : [ {
+          "x" : 3795,
+          "y" : 1238
+        } ]
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "45"
+      }, {
+        "id" : "46",
+        "vertices" : [ {
+          "x" : 1585,
+          "y" : 1238
+        } ]
+      }, {
+        "id" : "68"
+      }, {
+        "id" : "70"
+      } ]
+    }, {
+      "containerId" : "8",
+      "dimensions" : {
+        "height" : 2786,
+        "width" : 2930
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 214,
+        "y" : 234
+      }, {
+        "id" : "3",
+        "x" : 2279,
+        "y" : 809
+      }, {
+        "id" : "4",
+        "x" : 199,
+        "y" : 904
+      }, {
+        "id" : "7",
+        "x" : 949,
+        "y" : 199
+      }, {
+        "id" : "10",
+        "x" : 874,
+        "y" : 1594
+      }, {
+        "id" : "12",
+        "x" : 1559,
+        "y" : 1594
+      }, {
+        "id" : "18",
+        "x" : 874,
+        "y" : 2194
+      }, {
+        "id" : "20",
+        "x" : 1559,
+        "y" : 2194
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "key" : "Contrata",
+      "order" : 4,
+      "relationships" : [ {
+        "id" : "26"
+      }, {
+        "id" : "27"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "50"
+      }, {
+        "id" : "56"
+      }, {
+        "id" : "68"
+      }, {
+        "id" : "70"
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "Todos",
+      "metadataSymbols" : "SquareBrackets",
+      "styles" : {
+        "elements" : [ {
+          "color" : "#ffffff",
+          "tag" : "Element"
+        }, {
+          "background" : "#2e8b57",
+          "shape" : "Person",
+          "tag" : "Person"
+        }, {
+          "background" : "#ffffff",
+          "color" : "#000000",
+          "tag" : "Software System"
+        }, {
+          "background" : "#4682b4",
+          "tag" : "Container"
+        }, {
+          "background" : "#4b0082",
+          "tag" : "Component"
+        }, {
+          "background" : "#7b68ee",
+          "shape" : "WebBrowser",
+          "tag" : "Web Browser"
+        }, {
+          "shape" : "Cylinder",
+          "tag" : "Database"
+        }, {
+          "background" : "#ff6b81",
+          "shape" : "MobileDevicePortrait",
+          "tag" : "Mobile"
+        }, {
+          "background" : "#696969",
+          "tag" : "Spring Boot"
+        }, {
+          "background" : "#696969",
+          "border" : "Dashed",
+          "height" : 150,
+          "stroke" : "#ffffff",
+          "strokeWidth" : 3,
+          "tag" : "API Gateway",
+          "width" : 1800
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "dimensions" : {
+        "height" : 2036,
+        "width" : 4235
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 200,
+        "y" : 200
+      }, {
+        "id" : "2",
+        "x" : 1959,
+        "y" : 1355
+      }, {
+        "id" : "3",
+        "x" : 1959,
+        "y" : 525
+      }, {
+        "id" : "4",
+        "x" : 2235,
+        "y" : 1005
+      }, {
+        "id" : "6",
+        "x" : 905,
+        "y" : 250
+      }, {
+        "id" : "8",
+        "x" : 905,
+        "y" : 930
+      }, {
+        "id" : "16",
+        "x" : 905,
+        "y" : 1445
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "Diagram2",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "24"
+      }, {
+        "id" : "29",
+        "vertices" : [ {
+          "x" : 3120,
+          "y" : 405
+        } ]
+      }, {
+        "id" : "30"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "35"
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "69"
+      } ],
+      "softwareSystemId" : "5"
+    } ],
+    "systemContextViews" : [ {
+      "dimensions" : {
+        "height" : 1736,
+        "width" : 2591
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 199,
+        "y" : 716
+      }, {
+        "id" : "2",
+        "x" : 939,
+        "y" : 1236
+      }, {
+        "id" : "3",
+        "x" : 1940,
+        "y" : 766
+      }, {
+        "id" : "4",
+        "x" : 350,
+        "y" : 200
+      }, {
+        "id" : "5",
+        "x" : 939,
+        "y" : 766
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "Diagram1",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "25"
+      }, {
+        "id" : "28",
+        "vertices" : [ {
+          "x" : 1534,
+          "y" : 461
+        } ]
+      }, {
+        "id" : "31",
+        "vertices" : [ {
+          "x" : 974,
+          "y" : 551
+        } ]
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "38"
+      }, {
+        "id" : "39",
+        "vertices" : [ {
+          "x" : 2134,
+          "y" : 506
+        } ]
+      } ],
+      "softwareSystemId" : "5"
+    } ]
+  }
+}

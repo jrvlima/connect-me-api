@@ -118,3 +118,5 @@ Execution Time: 5.263 ms
                             │       └── UserRepository.java
                             └── workhistory
 ```
+
+![img.png](docs/domain.png)
