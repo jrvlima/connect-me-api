@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: connect-me-api
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    users:
+      jdbc-url: jdbc:postgresql://localhost:5432/users_db  # Changed from url to jdbc-url
+      username: admin
+      password: admin
+      driver-class-name: org.postgresql.Driver
+    skills:
+      jdbc-url: jdbc:postgresql://localhost:5432/skills_db
+      username: admin
+      password: admin
+      driver-class-name: org.postgresql.Driver
+    booking:
+      jdbc-url: jdbc:postgresql://localhost:5432/booking_db
+      username: admin
+      password: admin
+      driver-class-name: org.postgresql.Driver
+    connections:
+      jdbc-url: jdbc:postgresql://localhost:5432/connections_db
+      username: admin
+      password: admin
+      driver-class-name: org.postgresql.Driver
+
+server:
+  port: 9090
