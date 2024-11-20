@@ -27,6 +27,10 @@ Para simplificação do MVP e das primeiras versões do sistemas os microserviç
 
 https://github.com/user-attachments/assets/beb84c24-d692-4c49-b0f7-1faa2f73e32a
 
+## Definição de Personas
+
+## User Journeys
+
 ## Visão Geral dos Microsserviços e Fluxo de Dados
 Cada serviço deve ter seu próprio banco de dados, permitindo escalabilidade e isolando a lógica de domínio.
 
@@ -274,7 +278,44 @@ https://github.com/user-attachments/assets/32a8c0a4-fd7a-49f1-bd0d-ddeba2b16a8b
 
 ## Cenários ATAM
 ### Cenário 1: [Interoperabilidade](docs/cenarios/INTEROPERABILIDADE.md)
-### Cenários 2: [Performance](docs/cenarios/PERFORMANCE.md)
+
+![](docs/json-view.png)
+
+### Cenários 2: [Desempenho](docs/cenarios/DESEMPENHO.md)
+
+![](docs/locust-statistics.png)
+*Execução de testes de carga com Locust feita em ambiente de desenvolvimento - localhost - cenário não apropriado - somente ilustrativo*
+
+#### Como interpretar os resultados do Locust?
+| Métrica               | Significado                                                                                   |
+|-----------------------|-----------------------------------------------------------------------------------------------|
+| # Requests           | Número total de requisições feitas ao endpoint durante o teste.                               |
+| # Fails              | Número de requisições que falharam (devem ser 0 para atender aos objetivos).                   |
+| Median (ms)          | Tempo de resposta mediano (50% das requisições foram mais rápidas que esse valor).             |
+| 95%ile (ms)          | 95% das requisições foram mais rápidas que esse valor. Essa é uma métrica crítica para análise de desempenho. |
+| 99%ile (ms)          | 99% das requisições foram mais rápidas que esse valor (analisa os piores cenários).            |
+| Average (ms)         | Tempo médio de resposta de todas as requisições.                                               |
+| Min (ms)             | O menor tempo de resposta observado (geralmente o ideal em um cenário de baixa carga).         |
+| Max (ms)             | O maior tempo de resposta observado (relevante para identificar gargalos).                     |
+| Current RPS          | Requisições por segundo (Requests Per Second) no momento do teste.                             |
+| Current Failures/s   | Número de falhas por segundo no momento do teste (devem ser 0).                                |
+
+**Processar 1000 RPS com <100ms de resposta:**
+Foco em: Current RPS, Median (ms) e 95%ile (ms).
+
+- Objetivo:
+  - Current RPS ≥ 1000.
+  - Median (ms) < 100ms.
+  - 95%ile (ms) < 100ms.
+
+**Responder ao input do usuário em ≤ 2 segundo sob carga:**
+Foco em: Median (ms), 95%ile (ms), 99%ile (ms). Considerar que o tempo total de resposta percebido pelo usuário inclui a latência da rede, o tempo de renderização no cliente e o tempo de processamento no backend, podendo envolver múltiplas requisições e lógica complexa.
+
+- Objetivo:
+  - Median (ms) ≤ 2000ms.   
+  - 95%ile (ms) ≤ 2000ms.
+  - 99%ile (ms) deve estar próximo de 2 segundo (não pode exceder consistentemente).
+
 #### Full-text Search
 ```plaintext
 Bitmap Heap Scan on persons  (cost=13.59..312.28 rows=146 width=679) (actual time=0.067..0.406 rows=146 loops=1)
@@ -293,7 +334,7 @@ Rows Removed by Filter: 9846
 Planning Time: 0.512 ms
 Execution Time: 5.263 ms
 ```
-### Cenário 3: [Manutenibilidade](docs/cenarios/MANUTENIBILIDADE.md)
+### Cenário 3: [Modificabilidade](docs/cenarios/MODIFICABILIDADE.md)
 ```plaintext
 ➜  connect-me-api git:(main) ✗ tree -I 'build|bin|gradle|__pycache__|test|resources'
 .
