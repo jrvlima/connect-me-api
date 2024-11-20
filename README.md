@@ -1,6 +1,10 @@
 # connect-me-api
 
-![](docs/solucao-overview.mp4)
+
+
+https://github.com/user-attachments/assets/4d99b93e-0e91-4047-8912-67b863f9ba95
+
+
 
 # Contexto
 
