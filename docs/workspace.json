@@ -5,8 +5,7 @@
   "description" : "Conectme é uma plataforma que conecta prestadores de serviço e clientes",
   "documentation" : { },
   "id" : 1,
-  "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2024-11-19T22:14:53Z",
+  "lastModifiedDate" : "2024-11-19T23:13:16Z",
   "model" : {
     "people" : [ {
       "id" : "1",
@@ -722,7 +721,6 @@
     "configuration" : {
       "branding" : { },
       "lastSavedView" : "Todos",
-      "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
           "color" : "#ffffff",
