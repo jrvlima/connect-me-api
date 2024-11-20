@@ -39,7 +39,6 @@ Nas primeiras versões cada pacote usa um um DB diferente na mesmo servidor Post
 - User Service: Lida com perfis de usuário, pessoas, endereços, ...
 - Skill Management Service: Contém habilidades e categorias de uma pessoa.
 - Booking Service: Gerencia solicitações de serviços e reservas.
-- Serviço de Gerenciamento de Habilidades: Lida com operações CRUD de habilidades.
 - Work History Service: Armazena todas as transações de serviços entre usuários.
 - Connection Service: Gerencia o gráfico de conexões da rede social.
 - Payment Service: Lida com pagamentos e transações financeiras.
