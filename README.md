@@ -76,24 +76,156 @@ Obs: acrescente quantas linhas forem necessárias.
 | **RNF06** | Garantir que os dados de localização estejam precisos e atualizados.                             | M                       |
 
 ## Mecanismos Arquiteturais
-| **Análise**                                                                                              | **Design**                                                                              | **Implementação**                                                                                 |
-|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| **Persistência**                                                                                         | ORM Postgres – Inicialmente será utilizado Postgres pelo fato de ser uma aplicação com mais leituras que escritas; | Spring JPA e Postgres                                                                           |
-| **Web Front end**                                                                                        | Single Page Application responsiva                                                    | Angular                                                                                         |
-| **Mobile Front end**                                                                                     | Hybrid Web Mobile                                                                      | Ionic Angular                                                                                   |
-| **Back end**                                                                                             | API Restful N-Layer dividindo domínios em pacotes preparando uma possível migração para microserviços caso a aplicação tenha uma boa aceitação | Spring Boot N-Layer                                                                             |
-| **Integração**                                                                                           | Filas e Sistemas de Notificação                                                       | AWS SQS/SNS                                                                                     |
-| **Log do sistema**                                                                                       | Biblioteca de Log + Ingestão de Dados + Sistema de Indexação de texto com mecanismos de Busca, Agregação e Análise + Ferramentas de Visualização | Spring Boot Logging with Log4j2 | Stack ELK                                                   |
-| **Teste de Software**                                                                                    | Implementação de Pirâmide de Testes: Unit | Integration | Acceptance                                   | Spring Tests, JUnit, Spock, Jest, Selenium                                                     |
-| **Deploy**                                                                                               | DevOps CI/CD, Containers, Orchestrador de Containers                                   | Github Actions, Kubernetes                                                                      |
-| **Autenticação e Autorização**                                                                           | RBAC, MFA, Identity Providers, User e Password                                        | Spring Security e AWS Cognito                                                                   |
 
-| **Header 1**       | **Header 2** | **Header 3** |
-|---------------------|--------------|--------------|
-| <td rowspan="2">Row 1-2</td> | Cell 1-1      | Cell 1-2      |
-|                     | Cell 2-1      | Cell 2-2      |
-| <td rowspan="2">Row 3-4</td> | Cell 3-1      | Cell 3-2      |
-|                     | Cell 4-1      | Cell 4-2      |
+<table>
+    <tr>
+        <th>Análise</th>
+        <th>Design</th>
+        <th>Implementação</th>
+    </tr>
+    <!-- Backend -->
+    <tr>
+        <td rowspan="5">Backend</td>
+        <td>Arquitetura em Camadas</td>
+        <td>
+            - Divida a aplicação em camadas claras: Controller, Service, Repository.<br>
+            - Utilize a Injeção de Dependência do Spring Boot para desacoplar essas camadas de forma flexível.
+        </td>
+    </tr>
+    <tr>
+        <td>API RESTful</td>
+        <td>
+            - Siga os princípios REST com o uso adequado dos verbos HTTP (GET, POST, PUT, DELETE).<br>
+            - Implemente paginação, filtragem e ordenação para endpoints que retornam grandes volumes de dados.
+        </td>
+    </tr>
+    <tr>
+        <td>DTO (Objeto de Transferência de Dados)</td>
+        <td>
+            - Utilize DTOs para desacoplar o esquema do banco de dados dos contratos da API, garantindo flexibilidade
+            para futuras alterações.
+        </td>
+    </tr>
+    <tr>
+        <td>Tratamento de Exceções</td>
+        <td>
+            - Centralize o tratamento de exceções usando @ControllerAdvice e @ExceptionHandler.
+        </td>
+    </tr>
+    <tr>
+        <td>Padrões de Resiliência</td>
+        <td>
+            - Implemente retries, circuit breakers e fallback usando bibliotecas como Resilience4j ou Hystrix.
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="3">Frontend</td>
+        <td>SPA (Single Page Application)</td>
+        <td>
+            - Utilize Angular para criar uma aplicação responsiva e dinâmica.<br>
+            - Gerencie rotas com RouterModule e use componentes reutilizáveis.
+        </td>
+    </tr>
+    <tr>
+        <td>UX/UI Responsiva</td>
+        <td>
+            - Implemente responsividade com CSS Flexbox e Grid.<br>
+            - Use bibliotecas como Angular Material ou Bootstrap para componentes de interface.
+        </td>
+    </tr>
+    <tr>
+        <td>Comunicação com Backend</td>
+        <td>
+            - Use HttpClientModule do Angular para consumir APIs REST.<br>
+            - Configure interceptors para autenticação e tratamento de erros.
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">Segurança</td>
+        <td>Autenticação</td>
+        <td>
+            - Utilize Spring Security integrado com AWS Cognito para autenticação.<br>
+            - Implemente JWT para controle de sessões e proteção de endpoints.
+        </td>
+    </tr>
+    <tr>
+        <td>Autorização</td>
+        <td>
+            - Defina papéis (roles) e permissões com base na lógica de negócios.<br>
+            - Use @PreAuthorize para restringir acesso em métodos específicos.
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">Integração</td>
+        <td>Comunicação Síncrona</td>
+        <td>
+            - Utilize Feign Client ou RestTemplate para consumir APIs externas.<br>
+            - Garanta que chamadas falhas sejam tratadas com retries.
+        </td>
+    </tr>
+    <tr>
+        <td>Comunicação Assíncrona</td>
+        <td>
+            - Implemente filas usando AWS SQS e tópicos com SNS.<br>
+            - Use DLQs (Dead Letter Queues) para mensagens que falharam no processamento.
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">Persistência</td>
+        <td>Banco de Dados Relacional</td>
+        <td>
+            - Utilize PostgreSQL com Spring Data JPA para dados estruturados.<br>
+            - Configure índices para otimizar consultas frequentes.
+        </td>
+    </tr>
+    <tr>
+        <td>Banco de Dados NoSQL</td>
+        <td>
+            - Use MongoDB para dados não estruturados ou semi-estruturados.<br>
+            - Modele os documentos com base nos requisitos do domínio.
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">Log</td>
+        <td>Centralização de Logs</td>
+        <td>
+            - Use frameworks como Logback ou SLF4J para logging estruturado.<br>
+            - Integre com ELK (Elasticsearch, Logstash, Kibana) ou CloudWatch.
+        </td>
+    </tr>
+    <tr>
+        <td>Monitoramento</td>
+        <td>
+            - Configure Spring Boot Actuator para métricas e health checks.<br>
+            - Integre com Prometheus e Grafana para monitoramento em tempo real.
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">Entrega</td>
+        <td>Automação de Testes</td>
+        <td>
+            - Escreva testes unitários com JUnit e Mockito.<br>
+            - Implemente testes de integração para APIs usando Spring Boot Test.
+        </td>
+    </tr>
+    <tr>
+        <td>CI/CD</td>
+        <td>
+            - Configure pipelines com GitHub Actions para build, teste e deploy automatizados.<br>
+            - Use scripts para provisionar infraestrutura no Kubernetes.
+        </td>
+    </tr>
+    <tr>
+        <td>Deploy</td>
+        <td>Contêineres e Orquestração</td>
+        <td>
+            - Utilize Docker para criar contêineres do aplicativo.<br>
+            - Implemente Kubernetes no Digital Ocean para orquestração e escalabilidade.
+        </td>
+    </tr>
+</table>
+
+
 
 
 ## Modelagem Arquitetural
