@@ -129,6 +129,7 @@ Os pacotes devem incluir as classes de modelo/entidade, Interfaces de Repositór
 - Sistema Externo – AWS Api Gateway – Utilizado para redirecionamento das requisições HTTP do aplicativo móvel e da solução web
 - Sistema Externo – AWS Cognito – Utilizado para autenticação, autorização, autenticação de dois fatores e gerenciamento de Provedores de Identidade como Google, Azure AD, Facebook, entre outros;
 
+https://github.com/user-attachments/assets/32a8c0a4-fd7a-49f1-bd0d-ddeba2b16a8b
 
 ## Cenários ATAM
 ### Cenário 1: [Interoperabilidade](docs/cenarios/INTEROPERABILIDADE.md)
