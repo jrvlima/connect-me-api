@@ -220,7 +220,7 @@ Obs: acrescente quantas linhas forem necessárias.
         <td>Contêineres e Orquestração</td>
         <td>
             - Utilize Docker para criar contêineres do aplicativo.<br>
-            - Implemente Kubernetes no Digital Ocean para orquestração e escalabilidade.
+            - Implemente Kubernetes no AWS EKS para orquestração e escalabilidade.
         </td>
     </tr>
 </table>
