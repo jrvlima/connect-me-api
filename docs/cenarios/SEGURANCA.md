@@ -3,8 +3,8 @@
 - **Requisito de Qualidade**: O sistema deve proteger contra tentativas de força bruta.
 - **Preocupação**: Garantir que contas não sejam comprometidas.
 
-**Cenário(s):**  
-**Cenário 1**
+## Cenário(s):
+### Cenário 1
 - **Ambiente**: Internet pública.
 - **Estímulo**: Um usuário tenta realizar login com credenciais incorretas múltiplas vezes.
 - **Mecanismo**: Serviço de autenticação.

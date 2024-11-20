@@ -7,7 +7,7 @@
 
 
 ## Cenário(s)
-**Cenário 2**
+**Cenário 1**
 
 ### Ambiente
 

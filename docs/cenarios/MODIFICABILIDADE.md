@@ -3,8 +3,8 @@
 - **Requisito de Qualidade**: O sistema deve permitir mudanças rápidas com interrupção mínima.
 - **Preocupação**: Garantir que novas categorias sejam adicionadas sem impacto negativo nos usuários.
 
-**Cenário(s):**  
-**Cenário 1**
+## Cenário(s):
+### Cenário 1
 - **Ambiente**: Sistema em produção com atividade de usuários em andamento.
 - **Estímulo**: Um administrador solicita a adição de uma nova categoria de serviço (ex.: adestramento de animais).
 - **Mecanismo**: Modelo de dados do backend e UI.

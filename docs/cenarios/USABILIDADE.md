@@ -3,8 +3,8 @@
 - **Requisito de Qualidade**: O sistema deve oferecer uma experiência de onboarding simples e eficaz.
 - **Preocupação**: A primeira experiência do usuário deve ser positiva.
 
-**Cenário(s):**  
-**Cenário 1**
+## Cenário(s):
+### Cenário 1
 - **Ambiente**: Dispositivo móvel com configurações padrão.
 - **Estímulo**: Um novo cliente acessa o app pela primeira vez.
 - **Mecanismo**: Fluxo de onboarding.
