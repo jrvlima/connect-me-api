@@ -88,16 +88,17 @@ Obs: acrescente quantas linhas forem necessárias.
 | **Deploy**                                                                                               | DevOps CI/CD, Containers, Orchestrador de Containers                                   | Github Actions, Kubernetes                                                                      |
 | **Autenticação e Autorização**                                                                           | RBAC, MFA, Identity Providers, User e Password                                        | Spring Security e AWS Cognito                                                                   |
 
+## Modelagem Arquitetural
 
-## Contexto
+### Contexto
 
 ![System Design connect-me.png](docs/System%20Design%20connect-me.png)
 
-## Container
+### Container
 
 ![Container.png](docs/Container.png)
 
-## Componentes
+### Componentes
 
 ![Component-Services.png](docs/Component-Services.png)
 *Figure 3 – Diagrama de Componentes – Tem como objetivo mostrar os diferentes pacotes Java representando cada Microserviço da aplicação e as interações com outros componentes importante da Arquitetura.*
@@ -110,7 +111,7 @@ Obs: acrescente quantas linhas forem necessárias.
 ![Component-Booking.png](docs/Component-Booking.png)
 *Figura 4 – Diagrama de Componentes – Tem como objetivo demonstrar um sub grupo dos componentes da aplicação e como eles interagem com outros sistemas, e componentes; As interações entre pacotes/microserviços devem ser melhor documentadas para a fase de separação dos pacotes em diferentes microserviços (artefatos, bancos de dados, implantações e ambientes; Nas fases posteriores as comunicações serão mais complexas e demandam o planejamento, análise e desenho de dos casos de dados distribuídos;*
 
-## Domínio 
+### Domínio 
 
 ![Domain.png](docs/domain.png)
 
