@@ -1,5 +1,7 @@
 # connect-me-api
 
+![](docs/solucao-overview.mp4)
+
 # Contexto
 
 Em um país em desenvolvimento, as atividades de prestação de serviços gerais, como faxineiras, bombeiros, jardineiros, piscineiros, eletricistas, pintores, enfermeiros e babás, são amplamente demandadas pela população. No entanto, tanto os profissionais quanto os clientes enfrentam desafios significativos na conexão e organização desses serviços. Muitos dos profissionais que atuam nessas áreas fazem parte da economia informal e frequentemente possuem mais de uma ocupação para complementar sua renda, o que torna a organização da agenda e a venda de seus serviços um desafio constante. Por outro lado, os clientes encontram dificuldades em localizar profissionais qualificados e em obter referências de confiança para garantir a qualidade do serviço contratado.
