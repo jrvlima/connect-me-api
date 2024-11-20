@@ -88,6 +88,14 @@ Obs: acrescente quantas linhas forem necessárias.
 | **Deploy**                                                                                               | DevOps CI/CD, Containers, Orchestrador de Containers                                   | Github Actions, Kubernetes                                                                      |
 | **Autenticação e Autorização**                                                                           | RBAC, MFA, Identity Providers, User e Password                                        | Spring Security e AWS Cognito                                                                   |
 
+| **Header 1**       | **Header 2** | **Header 3** |
+|---------------------|--------------|--------------|
+| <td rowspan="2">Row 1-2</td> | Cell 1-1      | Cell 1-2      |
+|                     | Cell 2-1      | Cell 2-2      |
+| <td rowspan="2">Row 3-4</td> | Cell 3-1      | Cell 3-2      |
+|                     | Cell 4-1      | Cell 4-2      |
+
+
 ## Modelagem Arquitetural
 
 ### Contexto
